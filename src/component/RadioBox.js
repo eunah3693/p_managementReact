@@ -5,7 +5,11 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const useStyles = makeStyles((theme) => ({
-
+  radioData:{
+    "& .MuiTypography-body":{
+      fontSize:"15px"
+    }
+  }
   
 }));
 
@@ -19,7 +23,7 @@ export default function RadioBox(props) {
   };
 
   return (
-        <RadioGroup value={value} onChange={handleChange}>
+        <RadioGroup value={value} onChange={handleChange} className={classes.radioGroup}>
           <div>
             {radioData.map((val,idx) => (
               <FormControlLabel value={val} control={<Radio color="default"/>} label={val} />

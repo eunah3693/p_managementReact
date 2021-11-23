@@ -40,22 +40,19 @@ const useStyles = makeStyles((theme) => ({
         '&.Mui-focused fieldset': {
           borderColor: '#ccc',
         },
+   
       },
   },
 }));
 
 export default function InputFile(props) {
   const classes = useStyles();
-  const {label} = props;
-
-  function changeFile(){
-    console.log("dd")
-  }
+  const {label, inputValue, changeFile} = props;
 
   return (
     <div className={classes.root}>
       <TextField  id="outlined-basic"  variant="outlined" className={classes.inputBox} label={label} />
-      <Button variant="contained"   component="label">  
+      <Button variant="contained"   component="label" value={inputValue}>  
         파일첨부
         <input
             type="file"

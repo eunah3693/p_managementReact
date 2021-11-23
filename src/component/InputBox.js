@@ -5,8 +5,14 @@ import TextField from '@material-ui/core/TextField';
 const useStyles = makeStyles((theme) => ({
   root: {
     width:"100%",
+    "& .MuiOutlinedInput-inputMultiline":{
+      padding:"0"
+    },
     "& .MuiOutlinedInput-input":{
       padding:"10px 14px"
+    },
+    "& .MuiOutlinedInput-inputMultiline.MuiOutlinedInput-inputMultiline":{
+      padding:"0"
     },
     "& .MuiFormLabel-root":{
       lineHeight:"2px"
@@ -27,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
       '&.Mui-focused fieldset': {
         borderColor: '#ccc',
       },
+     
     },
   },
 }));
