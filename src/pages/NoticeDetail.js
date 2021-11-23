@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function NoticeAdd(){
+function NoticeDetail(){
     const classes = useStyles();
     const radioData=["전체공지","취업규칙","서류양식"];
     const [data, setData] = useState({
@@ -80,4 +80,4 @@ function NoticeAdd(){
 
 }
 
-export default NoticeAdd;
+export default NoticeDetail;

@@ -3,13 +3,13 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Login from './pages/Login';
 import Notice from './pages/Notice';
-import NoticeAdd from './pages/NoticeAdd';
+import NoticeDetail from './pages/NoticeDetail';
 
 function App() {
   return (
     <div className="App">
         <Route path="/notice" component={Notice} />
-        <Route path="/noticeAdd" component={NoticeAdd} />
+        <Route path="/noticeDetail" component={NoticeDetail} />
         <Route path="/" component={Login} exact/>
     </div>
   );
