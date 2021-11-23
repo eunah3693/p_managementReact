@@ -29,17 +29,19 @@ function NoticeAdd(){
         writer:"",
         sFile:""
     });
-    function changeValue(e,type){
-        setData({...data, "title":e.target.value});
+
+    function changeValue(e, key){
+      data[key]=e.target.value;
+      setData({...data})
     }
     return (
         <div className={classes.layout}>
           <Nav nameOn="공지사항"></Nav>
           <div className={classes.content}>
             <RadioBox radioData={radioData}></RadioBox>
-            <InputBox width="800px" multiline={false} rows={1} label="공지제목" inputValue={data.title} changeValue={changeValue} ></InputBox>
-            <InputBox width="800px" multiline={true} rows={4}  label="공지내용"></InputBox>
-            <InputBox width="800px" multiline={false} rows={1}  label="작성자"></InputBox>
+            <InputBox width="800px" multiline={false} rows={1} label="공지제목" inputValue={data.title} changeValue={(e)=>{changeValue(e,"title")}} ></InputBox>
+            <InputBox width="800px" multiline={true} rows={4}  label="공지내용" inputValue={data.content} changeValue={(e)=>{changeValue(e,"content")}}></InputBox>
+            <InputBox width="800px" multiline={false} rows={1}  label="작성자" inputValue={data.writer} changeValue={(e)=>{changeValue(e,"writer")}}></InputBox>
             <InputFile label="양식첨부"></InputFile>
           </div>
         </div>
