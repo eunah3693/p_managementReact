@@ -18,15 +18,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SelectBox(props) {
   const classes = useStyles();
-  const [option, setOption] = React.useState('');
+
   const [open, setOpen] = React.useState(false);
   //   select 안에 option
-  let selectData=props.selectData;
-
-
-  const handleChange = (event) => {
-    setOption(event.target.value);
-  };
+  let {selectData,option,changeSelect}=props;
 
   const handleClose = () => {
     setOpen(false);
@@ -46,7 +41,7 @@ export default function SelectBox(props) {
           onClose={handleClose}
           onOpen={handleOpen}
           value={option}
-          onChange={handleChange}
+          onChange={changeSelect}
         >
         {selectData.map((val,idx) => (
             <MenuItem value={val}><span>{val}</span></MenuItem>

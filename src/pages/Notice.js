@@ -84,13 +84,16 @@ let data=[{
 function Notice(){
     const classes = useStyles();
     const selectData=["취업공지","취업규칙","서류양식"];
-
+    const [option, setOption] = React.useState(''); //selectbox
+    const changeSelect = (event) => {
+        setOption(event.target.value);
+    };
     return (
         <div className={classes.layout}>
           <Nav nameOn="공지사항"></Nav>
           <div className={classes.content}>
             <div className={classes.sortingBox}>
-                <SelectBox width="130px" selectData={selectData}></SelectBox>
+                <SelectBox width="130px" selectData={selectData} option={option} changeSelect={changeSelect}></SelectBox>
                 <Link to={"/noticeDetail"} className={classes.buttonBox}><Button variant="contained">공지추가</Button></Link>
             </div>
             <TableContainer component={Paper} className={classes.noticeTable}>

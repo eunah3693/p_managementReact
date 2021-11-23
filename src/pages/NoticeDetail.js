@@ -43,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
 function NoticeDetail(){
     const classes = useStyles();
     const location = useLocation()
-    
+
+
     const radioData=["전체공지","취업규칙","서류양식"];
     const [data, setData] = useState({
         type:"전체공지",
