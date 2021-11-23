@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Nav from '../component/Nav';
 import RadioBox from '../component/RadioBox';
 import InputBox from '../component/InputBox';
 import InputFile from '../component/InputFile';
 import { makeStyles } from '@material-ui/core/styles';
-import { DateRangeOutlined } from '@material-ui/icons';
-import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles((theme) => ({
     layout:{
@@ -42,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
 
 function NoticeDetail(){
     const classes = useStyles();
+    const location = useLocation()
+    
     const radioData=["전체공지","취업규칙","서류양식"];
     const [data, setData] = useState({
         type:"전체공지",
@@ -54,6 +56,19 @@ function NoticeDetail(){
       data[key]=e.target.value;
       setData({...data})
     }
+
+    useEffect(() => {
+        if(location.pathname.split("/noticeDetail/")[1]){ //pathname 있으면 보기, 없으면 등록 
+            setData({
+                type:"취업규칙",
+                title:"title",
+                content:"content",
+                writer:"writer",
+                sFile:""
+            })
+        }
+      }, [location.pathname]);
+      
     return (
         <div className={classes.layout}>
           <Nav nameOn="공지사항"></Nav>
@@ -73,7 +88,7 @@ function NoticeDetail(){
             <div className={classes.inputBox}>
                 <InputFile label="양식첨부"></InputFile>
             </div>
-            <Link to={"/noticeAdd"} className={classes.buttonBox}><Button variant="contained">공지등록</Button></Link>
+            <div className={classes.buttonBox}><Button variant="contained">공지등록</Button></div>
           </form>
         </div>
     );

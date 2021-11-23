@@ -91,7 +91,7 @@ function Notice(){
           <div className={classes.content}>
             <div className={classes.sortingBox}>
                 <SelectBox width="130px" selectData={selectData}></SelectBox>
-                <Link to={"/noticeAdd"} className={classes.buttonBox}><Button variant="contained">공지추가</Button></Link>
+                <Link to={"/noticeDetail"} className={classes.buttonBox}><Button variant="contained">공지추가</Button></Link>
             </div>
             <TableContainer component={Paper} className={classes.noticeTable}>
                 <Table className={classes.table} aria-label="simple table">
