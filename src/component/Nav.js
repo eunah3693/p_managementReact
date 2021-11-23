@@ -28,7 +28,8 @@ const loopStyles = makeStyles((theme) => ({
             fontSize:"13px"
         },
         "& a":{
-            color:"#fff"
+            color:"#fff",
+            textDecoration:"none"
         },
         "& .on .MuiTypography-root":{
             fontWeight:"bold",
