@@ -15,7 +15,10 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     layout:{
-        display:"flex"
+        display:"flex",
+        "& a":{
+            textDecoration:"none"
+        }
     },
     content:{
         width:"100%",
@@ -27,7 +30,9 @@ const useStyles = makeStyles((theme) => ({
         width:"80%",
         marginTop:"50px",
         fontSize:"15px",
-   
+        "& .MuiTableCell-root a":{
+            color:"rgba(0, 0, 0, 0.87)"
+        }
     },
     paginationBox:{
         paddingTop:"30px"
