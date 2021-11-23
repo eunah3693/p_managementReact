@@ -48,7 +48,7 @@ function NavLoop(props){
 
     const navData = [
         {"name":"공지사항","link":"/notice"},
-        {"name":"캘린더","link":""},
+        {"name":"캘린더","link":"/calendar"},
         {"name":"작업일지","link":""},
         {"name":"휴가신청","link":""},
         {"name":"전자결재","link":""},
