@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const useStyles = makeStyles((theme) => ({
-  radioData:{
-    "& .MuiTypography-body":{
+  radioGroup:{
+    "& .MuiTypography-root":{
       fontSize:"15px"
     }
   }
@@ -16,17 +16,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RadioBox(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState('');
-  const radioData=props.radioData;
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
+  const {radioData,radioValue,handleChangeRadio}=props;
+ 
   return (
-        <RadioGroup value={value} onChange={handleChange} className={classes.radioGroup}>
+        <RadioGroup className={classes.radioGroup} value={radioValue} onChange={handleChangeRadio}>
           <div>
             {radioData.map((val,idx) => (
-              <FormControlLabel value={val} control={<Radio color="default"/>} label={val} />
+              <FormControlLabel control={<Radio color="default"/>} label={val} value={val}  checked={radioValue === val} />
             ))}
           </div>
         </RadioGroup>
