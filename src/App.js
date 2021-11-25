@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Notice from './pages/Notice';
 import NoticeDetail from './pages/NoticeDetail';
 import WorkCalendar from './pages/WorkCalendar';
+import WorkDiary from './pages/WorkDiary';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/notice" component={Notice} />
         <Route path="/noticeDetail" component={NoticeDetail} />
         <Route path="/calendar" component={WorkCalendar} />
+        <Route path="/diary" component={WorkDiary} />
         <Route path="/" component={Login} exact/>
     </div>
   );
