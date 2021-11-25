@@ -4,11 +4,10 @@ import moment from 'moment'
 import { makeStyles } from '@material-ui/core/styles';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Nav from '../component/Nav';
-import BigCalendar from '../component/BigCalendar';
+import DiaryCalendar from '../component/DiaryCalendar';
 import WorkCalendarData from './WorkCalendarData';
 import WorkerInfo from './WorkerInfo';
-import WorkInfo from './WorkInfo';
-import HolidayInfo from './HolidayInfo';
+
 
 const useStyles = makeStyles((theme) => ({
   layout:{
@@ -23,15 +22,15 @@ const useStyles = makeStyles((theme) => ({
     display:"flex",
   },
   calendarInfo:{
-    width:"30%",
     height:"100vh",
     paddingLeft:"50px",
     display:"flex",
     flexDirection:"column",
-    justifyContent:"center"
+    justifyContent:"center",
+    alignItems:"center"
   },
   calendar:{
-    width:"70%",
+    width:"75%",
     height:"100vh",
     display:"flex",
   }
@@ -64,10 +63,10 @@ function WorkDiary(){
       <div className={classes.content}>
         <div className={classes.calendarInfo}>
           <WorkerInfo></WorkerInfo>
-          
+          <DiaryCalendar events={WorkCalendarData}></DiaryCalendar>
         </div>
         <div className={classes.calendar}>
-          <BigCalendar events={WorkCalendarData} eventStyleGetter={eventStyleGetter}></BigCalendar>
+
         </div>
       </div>
     </div>

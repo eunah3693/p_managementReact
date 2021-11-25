@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
     display:"flex",
   },
   calendarInfo:{
-    width:"30%",
     height:"100vh",
     paddingLeft:"50px",
     display:"flex",
