@@ -21,7 +21,7 @@ export default function SelectBox(props) {
 
   const [open, setOpen] = React.useState(false);
   //   select 안에 option
-  let {selectData,option,changeSelect}=props;
+  let {selectData,option,changeSelect,label}=props;
 
   const handleClose = () => {
     setOpen(false);
@@ -35,7 +35,7 @@ export default function SelectBox(props) {
   return (
     <div>
       <FormControl className={classes.formControl} style={{minWidth:props.width}}>
-        <InputLabel >공지종류</InputLabel>
+        <InputLabel >{label}</InputLabel>
         <Select
           open={open}
           onClose={handleClose}

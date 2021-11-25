@@ -6,10 +6,13 @@ import Card from '@material-ui/core/Card';
 const useStyles = makeStyles((theme) => ({
   layout:{
     width:"100%",
-    padding:"10px 0 10px 20px",
+    padding:"20px",
     textAlign:"left",
     fontSize:"13px",
-    margin:"10px 0"
+    margin:"10px 0",
+    "& p":{
+      lineHeight:"200%"
+    }
   },
   title:{
       paddingBottom:"5px"
