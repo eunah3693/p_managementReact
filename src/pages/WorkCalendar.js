@@ -8,6 +8,7 @@ import BigCalendar from '../component/BigCalendar';
 import WorkCalendarData from '../pages/WorkCalendarData';
 import WorkerInfo from './WorkerInfo';
 import WorkInfo from './WorkInfo';
+import HolidayInfo from './HolidayInfo';
 
 const useStyles = makeStyles((theme) => ({
   layout:{
@@ -59,6 +60,7 @@ function WorkCalendar(){
         <div className={classes.calendarInfo}>
           <WorkerInfo></WorkerInfo>
           <WorkInfo></WorkInfo>
+          <HolidayInfo></HolidayInfo>
         </div>
         <div className={classes.calendar}>
           <BigCalendar events={WorkCalendarData} eventStyleGetter={eventStyleGetter}></BigCalendar>

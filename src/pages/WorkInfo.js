@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }
  
 }));
-let workData=[
+let data=[
    {
        "name":"김은아",
        "department":"개발",
@@ -35,15 +35,15 @@ function WorkInfo(){
 
   return (
     <Card className={classes.layout}>
-        <p className={classes.title}><b>{workData[0].name}</b>님의 출근부</p>
-        <p>부서 : {workData[0].department}</p>
-        <p>직급 : {workData[0].rank}</p>
-        <p>직책 : {workData[0].position}</p>
-        <p>입사일 : {workData[0].entryDate}</p>
-        <p>근속일수 : {workData[0].workingDay}</p>
-        <p>지각일수 : {workData[0].lateDay}</p>
-        <p>이메일 : {workData[0].email}</p>
-        <p>연락처 : {workData[0].phone}</p>
+        <p className={classes.title}><b>{data[0].name}</b>님의 출근부</p>
+        <p>부서 : {data[0].department}</p>
+        <p>직급 : {data[0].rank}</p>
+        <p>직책 : {data[0].position}</p>
+        <p>입사일 : {data[0].entryDate}</p>
+        <p>근속일수 : {data[0].workingDay}</p>
+        <p>지각일수 : {data[0].lateDay}</p>
+        <p>이메일 : {data[0].email}</p>
+        <p>연락처 : {data[0].phone}</p>
     </Card>
   );
 }
