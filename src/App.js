@@ -7,6 +7,7 @@ import NoticeDetail from './pages/NoticeDetail';
 import WorkCalendar from './pages/WorkCalendar';
 import WorkDiary from './pages/WorkDiary';
 import OffList from './pages/OffList';
+import OffDetail from './pages/OffDetail';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/calendar" component={WorkCalendar} />
         <Route path="/diary" component={WorkDiary} />
         <Route path="/off" component={OffList} />
+        <Route path="/offDetail" component={OffDetail} />
         <Route path="/" component={Login} exact/>
     </div>
   );
