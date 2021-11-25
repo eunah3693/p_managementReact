@@ -6,6 +6,8 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Nav from '../component/Nav';
 import BigCalendar from '../component/BigCalendar';
 import WorkCalendarData from '../pages/WorkCalendarData';
+import WorkerInfo from './WorkerInfo';
+import WorkInfo from './WorkInfo';
 
 const useStyles = makeStyles((theme) => ({
   layout:{
@@ -18,8 +20,15 @@ const useStyles = makeStyles((theme) => ({
     width:"100%",
     display:"flex",
     alignItems:"center",
-    flexDirection:"column"
   },
+  calendarInfo:{
+    width:"30%",
+    height:"100vh",
+    paddingLeft:"50px"
+  },
+  calendar:{
+    width:"70%"
+  }
 }));
 
 function WorkCalendar(){
@@ -30,28 +39,33 @@ function WorkCalendar(){
     var backgroundColor = event.hexColor;
     var style = {
       backgroundColor: backgroundColor,
-      borderRadius: '0px',
+      borderRadius: '4px',
       opacity: 0.8,
       color: 'black',
       border: '0px',
-      display: 'block'
+      display: 'block',
+      color:"#fff",
+      fontSize:"13px"
     };
     return {
       style: style
     };
   }
 
-
-
   return (
     <div className={classes.layout}>
       <Nav nameOn="캘린더"></Nav>
       <div className={classes.content}>
-        <BigCalendar events={WorkCalendarData} eventStyleGetter={eventStyleGetter}></BigCalendar>
+        <div className={classes.calendarInfo}>
+          <WorkerInfo></WorkerInfo>
+          <WorkInfo></WorkInfo>
+        </div>
+        <div className={classes.calendar}>
+          <BigCalendar events={WorkCalendarData} eventStyleGetter={eventStyleGetter}></BigCalendar>
+        </div>
       </div>
     </div>
   );
-
 }
 
 export default WorkCalendar;
