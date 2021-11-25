@@ -19,16 +19,21 @@ const useStyles = makeStyles((theme) => ({
   },
   content:{
     width:"100%",
+    height:"100%",
     display:"flex",
-    alignItems:"center",
   },
   calendarInfo:{
     width:"30%",
     height:"100vh",
-    paddingLeft:"50px"
+    paddingLeft:"50px",
+    display:"flex",
+    flexDirection:"column",
+    justifyContent:"center"
   },
   calendar:{
-    width:"70%"
+    width:"70%",
+    height:"100vh",
+    display:"flex",
   }
 }));
 
