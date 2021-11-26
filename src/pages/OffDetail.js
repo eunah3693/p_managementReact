@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         display:"flex",
         alignItems:"center",
         flexDirection:"column",
-        paddingTop:"50px"
+        paddingTop:"200px"
     },
     radioBox:{
         width:"800px",
@@ -103,17 +103,17 @@ function OffDetail(){
                 <RadioBox radioData={radioData1} radioValue={data.type} handleChangeRadio={(e)=>{changeValue(e,"type")}} ></RadioBox>
             </div>
             <div className={classes.radioBox}>
-                <Datepicker label="휴가일" width="380px" selectedDate={data.offStart} handleDateChange={(e)=>{changeValue(e,"offStart")}}></Datepicker>
-                <Datepicker label="휴가일" width="380px" selectedDate={data.offEnd} handleDateChange={(e)=>{changeValue(e,"offEnd")}}></Datepicker>
+                <Datepicker label="휴가시작일" width="380px" selectedDate={data.offStart} handleDateChange={(e)=>{changeValue(e,"offStart")}}></Datepicker>
+                <Datepicker label="휴가종료일" width="380px" selectedDate={data.offEnd} handleDateChange={(e)=>{changeValue(e,"offEnd")}}></Datepicker>
             </div>
             <div className={classes.radioBox}>
                 <RadioBox radioData={radioData2} radioValue={data.offTime} handleChangeRadio={(e)=>{changeValue(e,"offTime")}} ></RadioBox>
             </div>
             <div className={classes.inputBox}>
-                <InputBox width="800px" multiline={false} rows={1} label="내용" inputValue={data.content} changeValue={(e)=>{changeValue(e,"content")}} ></InputBox>
+                <InputBox width="800px" multiline={false} rows={5} label="내용" inputValue={data.content} changeValue={(e)=>{changeValue(e,"content")}} ></InputBox>
             </div>
             <div className={classes.inputBox}>
-                <InputBox width="800px" multiline={true} rows={20}  label="비고" inputValue={data.extra} changeValue={(e)=>{changeValue(e,"extra")}}></InputBox>
+                <InputBox width="800px" multiline={true} rows={2}  label="비고" inputValue={data.extra} changeValue={(e)=>{changeValue(e,"extra")}}></InputBox>
             </div>
             <div className={classes.inputBox}>
                 <InputBox width="800px" multiline={false} rows={1}  label="비상연락처" inputValue={data.phone} changeValue={(e)=>{changeValue(e,"phone")}}></InputBox>
