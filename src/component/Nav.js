@@ -51,7 +51,7 @@ function NavLoop(props){
         {"name":"캘린더","link":"/calendar"},
         {"name":"작업일지","link":"/diary"},
         {"name":"휴가신청","link":"/off"},
-        {"name":"전자결재","link":""},
+        {"name":"전자결재","link":"/pay"},
         {"name":"사용자목록 및 등록","link":""},
         {"name":"개인정보 수정","link":""},
         {"name":"히스토리","link":""},

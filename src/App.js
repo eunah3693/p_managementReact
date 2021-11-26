@@ -8,6 +8,7 @@ import WorkCalendar from './pages/WorkCalendar';
 import WorkDiary from './pages/WorkDiary';
 import OffList from './pages/OffList';
 import OffDetail from './pages/OffDetail';
+import PayList from './pages/PayList';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/diary" component={WorkDiary} />
         <Route path="/off" component={OffList} />
         <Route path="/offDetail" component={OffDetail} />
+        <Route path="/pay" component={PayList} />
         <Route path="/" component={Login} exact/>
     </div>
   );

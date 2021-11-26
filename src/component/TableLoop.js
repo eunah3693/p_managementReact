@@ -51,21 +51,13 @@ function TableLoop(props){
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                    {data.map((val,idx) => (
-                            <TableRow key={idx}>
-                                    <TableCell className={classes.firstColumn} component="th" scope="row">{idx+1}</TableCell>
-                                    <TableCell align="center">{val.worker}</TableCell>
-                                    <TableCell align="center">
-                                        <Link to={"/"+link+"/"+idx}  className={classes.tableLink}>{val.duration}</Link>
-                                    </TableCell>
-                                    <TableCell align="center">{val.offType}</TableCell>
-                                    <TableCell align="center">{val.offName}</TableCell>
-                                    <TableCell align="center">{val.phone}</TableCell>
-                                    <TableCell align="center">{val.applyDate}</TableCell>
-                                    <TableCell align="center">{val.approve1}</TableCell>
-                                    <TableCell align="center">{val.approve2}</TableCell>
-                            </TableRow>
-                    ))}
+                        <TableRow>    
+                            {data.map((val,idx) => (
+                                Object.values(val).map((items,idx) => (
+                                    <TableCell align="center">{items}</TableCell>
+                                ))
+                            ))}
+                        </TableRow>
                     </TableBody>
                 </Table>
             </TableContainer>
