@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Nav from '../component/Nav';
 import RadioBox from '../component/RadioBox';
 import InputBox from '../component/InputBox';
-import InputFile from '../component/InputFile';
+import Datepicker from '../component/Datepicker';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
@@ -53,7 +53,8 @@ function OffDetail(){
         rank:"",
         position:"",
         offType:"",
-        duration:"",
+        offStart:"",
+        offEnd:"",
         offTime:"",
         content:"",
         extra:"",
@@ -68,13 +69,22 @@ function OffDetail(){
     }
 
     useEffect(() => {
-        if(location.pathname.split("/noticeDetail/")[1]){ //pathname 있으면 보기, 없으면 등록 
+        if(location.pathname.split("/offDetail/")[1]){ //pathname 있으면 보기, 없으면 등록 
             setData({
-                type:"취업규칙",
-                title:"title",
-                content:"content",
-                writer:"writer",
-                sFile:""
+                name:"dd",
+                department:"",
+                rank:"",
+                position:"",
+                offType:"",
+                offStart:"",
+                offEnd:"",
+                offTime:"",
+                content:"",
+                extra:"",
+                phone:"",
+                applyDate:"",
+                approve1:"",
+                approve2:"",
             })
         }
       }, [location.pathname]);
@@ -91,6 +101,10 @@ function OffDetail(){
             </div>
             <div className={classes.radioBox}>
                 <RadioBox radioData={radioData1} radioValue={data.type} handleChangeRadio={(e)=>{changeValue(e,"type")}} ></RadioBox>
+            </div>
+            <div className={classes.radioBox}>
+                <Datepicker label="휴가일" width="380px" selectedDate={data.offStart} handleDateChange={(e)=>{changeValue(e,"offStart")}}></Datepicker>
+                <Datepicker label="휴가일" width="380px" selectedDate={data.offEnd} handleDateChange={(e)=>{changeValue(e,"offEnd")}}></Datepicker>
             </div>
             <div className={classes.radioBox}>
                 <RadioBox radioData={radioData2} radioValue={data.offTime} handleChangeRadio={(e)=>{changeValue(e,"offTime")}} ></RadioBox>

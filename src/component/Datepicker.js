@@ -1,28 +1,37 @@
-
 import React from 'react';
-import { DateRangePicker } from 'react-date-range';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
-export default function Datepicker(){
-  function handleSelect(ranges){
-    console.log(ranges);
-    // {
-    //   selection: {
-    //     startDate: [native Date Object],
-    //     endDate: [native Date Object],
-    //   }
-    // }
-  }
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
+}));
 
-    const selectionRange = {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection',
-    }
-    return (
-      <DateRangePicker
-        ranges={[selectionRange]}
-        onChange={handleSelect}
+export default function Datepickers(props) {
+  const classes = useStyles();
+  const {label,width,selectedDate,handleDateChange}=props;
+
+  return (
+    <form className={classes.container} noValidate>
+      <TextField
+        id="date"
+        label={label}
+        type="date"
+        className={classes.textField}
+        style={{width:width}}
+        InputLabelProps={{
+          shrink: true,
+        }}
+        value={selectedDate}
+        onChange={handleDateChange}
       />
-    )
-  
+    </form>
+  );
 }
