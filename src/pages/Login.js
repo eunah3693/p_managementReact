@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom";
+import {connect} from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
     loginBox:{
@@ -37,15 +38,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function Login() {
+function Login(props) {
     const classes = useStyles();
     const [data, setData] = useState({
         "id":"",
         "pw":""
     });
+
     let history = useHistory();
     function submitId(e){
-        console.log(data);
         history.push("/notice");
     }
     return (
@@ -54,12 +55,29 @@ function Login() {
                 <form  className={classes.formBox}>
                     <TextField className={classes.formInput} name="id" value={data.id}  placeholder="ID" onChange={(e)=>setData({...data, "id":e.target.value})}/>
                     <TextField className={classes.formInput} name="pw" value={data.pw}  placeholder="PASSWORD"  onChange={(e)=>setData({...data, "pw":e.target.value})}/>
+                    <span>{props.number}</span>
+                    <button onClick={props.addNumber}>ddddd</button>
                     <Button className={classes.loginButton}  variant="contained" onClick={submitId}>LOGIN</Button>
                 </form>
             </Card>
         </div>
     );
+    
   }
+
+let mapStateToProps = (state, /*ownProps*/) => {
+    return {
+        number: state.number,
+    };
+};
+
+let mapDispatchToProps = (dispatch, /*ownProps*/) => {
+    return {
+        addNumber: () => dispatch({ type: 'INCREMENT' })
+    };
+};
+
+Login = connect(mapStateToProps, mapDispatchToProps)(Login);
 
 export default Login;
 

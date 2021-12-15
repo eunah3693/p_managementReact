@@ -6,6 +6,7 @@ var connection = mysql.createConnection({
     host : "localhost",
     user : "root", //mysql의 id
     password : "KKoj248624!", //mysql의 password
+    port:3306,
     database : "test", //사용할 데이터베이스
 });
 
