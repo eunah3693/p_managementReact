@@ -55,11 +55,11 @@ function Login(props) {
                 <form  className={classes.formBox}>
                     <TextField className={classes.formInput} name="id" value={data.id}  placeholder="ID" onChange={(e)=>setData({...data, "id":e.target.value})}/>
                     <TextField className={classes.formInput} name="pw" value={data.pw}  placeholder="PASSWORD"  onChange={(e)=>setData({...data, "pw":e.target.value})}/>
-                    <span>{props.number}</span>
-                    <button onClick={props.addNumber}>ddddd</button>
                     <Button className={classes.loginButton}  variant="contained" onClick={submitId}>LOGIN</Button>
                 </form>
             </Card>
+            <span>{props.number}</span>
+            <button onClick={props.addNumber}>ddddd</button>
         </div>
     );
     
