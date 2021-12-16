@@ -67,7 +67,7 @@ function Login(props) {
 
 let mapStateToProps = (state, /*ownProps*/) => {
     return {
-        number: state.number,
+        number: state.login.number,
     };
 };
 

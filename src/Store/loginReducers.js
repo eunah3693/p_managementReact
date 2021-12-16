@@ -5,7 +5,7 @@ const initialState = {
     number: 1,
   }
   
-  const reducers = (state = initialState, action) => {
+const loginReducers = (state = initialState, action) => {
     switch (action.type) {
       case "INCREMENT":
       return {
@@ -15,6 +15,6 @@ const initialState = {
       default:
         return state;
       }
-  };
+};
   
-  export default reducers;
+  export default loginReducers;
