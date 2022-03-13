@@ -12,6 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import Pagination from '@material-ui/lab/Pagination';
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
+import {connect} from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
     layout:{
@@ -62,29 +63,12 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-let data=[{
-    "index":1,
-    "type":"전체공지",
-    "title":"title",
-    "content":"content",
-    "sFile":[{"file":"/img/pencil1.png"},{"file":"/img/pencil2.png"}],
-    "writer":"writer",
-    "date":"2021-09-01"
-},
-{
-    "index":2,
-    "type":"전체공지",
-    "title":"title",
-    "content":"content",
-    "sFile":[],
-    "writer":"writer",
-    "date":"2021-09-01"
-}];
 
-function Notice(){
+
+function Notice(props){
     const classes = useStyles();
     const selectData=["취업공지","취업규칙","서류양식"];
-    const [option, setOption] = React.useState(''); //selectbox
+    const [option, setOption] = React.useState("취업공지"); //selectbox
     const changeSelect = (event) => {
         setOption(event.target.value);
     };
@@ -93,7 +77,7 @@ function Notice(){
           <Nav nameOn="공지사항"></Nav>
           <div className={classes.content}>
             <div className={classes.sortingBox}>
-                <SelectBox width="130px" selectData={selectData} option={option} changeSelect={changeSelect}></SelectBox>
+                <SelectBox width="130px" selectData={selectData} placeholder={option} changeSelect={changeSelect}></SelectBox>
                 <Link to={"/noticeDetail"} className={classes.buttonBox}><Button variant="contained">공지추가</Button></Link>
             </div>
             <TableContainer component={Paper} className={classes.noticeTable}>
@@ -105,11 +89,10 @@ function Notice(){
                             <TableCell align="center">공지제목</TableCell>
                             <TableCell align="center">작성자</TableCell>
                             <TableCell align="center">공지일</TableCell>
-                            <TableCell align="center">수정</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                    {data.map((val,idx) => (
+                    {props.data.map((val,idx) => (
                             <TableRow key={idx}>
                                     <TableCell className={classes.firstColumn} component="th" scope="row">{idx+1}</TableCell>
                                     <TableCell align="center">{val.type}</TableCell>
@@ -118,7 +101,6 @@ function Notice(){
                                     </TableCell>
                                     <TableCell align="center">{val.writer}</TableCell>
                                     <TableCell align="center">{val.date}</TableCell>
-                                    <TableCell align="center">수정</TableCell>
                             </TableRow>
                     ))}
                     </TableBody>
@@ -132,5 +114,18 @@ function Notice(){
     );
 
 }
+let mapStateToProps = (state, /*ownProps*/) => {
+    return {
+        data: state.notice.list,
+    };
+};
+
+let mapDispatchToProps = (dispatch, /*ownProps*/) => {
+    return {
+        addNumber: () => dispatch({ type: 'INCREMENT' })
+    };
+};
+
+Notice = connect(mapStateToProps, mapDispatchToProps)(Notice);
 
 export default Notice;

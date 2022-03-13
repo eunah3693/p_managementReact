@@ -21,7 +21,7 @@ export default function SelectBox(props) {
 
   const [open, setOpen] = React.useState(false);
   //   select 안에 option
-  let {selectData,option,changeSelect,label}=props;
+  let {selectData,placeholder,changeSelect,label}=props;
 
   const handleClose = () => {
     setOpen(false);
@@ -40,7 +40,7 @@ export default function SelectBox(props) {
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={option}
+          value={placeholder}
           onChange={changeSelect}
         >
         {selectData.map((val,idx) => (
