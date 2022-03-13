@@ -11,7 +11,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 // 이미지
 import navLogo from '../images/logowhite.png';
-import { FilterNoneOutlined } from '@material-ui/icons';
 
 const loopStyles = makeStyles((theme) => ({
     logoBox:{
@@ -44,19 +43,7 @@ const loopStyles = makeStyles((theme) => ({
 
 function NavLoop(props){
     const classes = loopStyles();
-    const [on, setOn] = React.useState('');
-
-    const navData = [
-        {"name":"공지사항","link":"/notice"},
-        {"name":"캘린더","link":"/calendar"},
-        {"name":"작업일지","link":"/diary"},
-        {"name":"휴가신청","link":"/off"},
-        {"name":"전자결재","link":"/pay"},
-        {"name":"사용자목록 및 등록","link":""},
-        {"name":"개인정보 수정","link":""},
-        {"name":"히스토리","link":""},
-        {"name":"로그아웃","link":"/"},
-    ];
+    const data=props.data;
 
     return(
         
@@ -64,7 +51,7 @@ function NavLoop(props){
                 <div className={classes.logoBox}>
                     <img src={navLogo}/>
                 </div>
-                {navData.map(function(val,key){
+                {data.map(function(val,key){
                     return(
                         <ListItem button className={classes.list} key={key}>
                             <Link to={val.link}><ListItemText primary={val.name} className={val.name===props.nameOn?"on":""}/></Link>
@@ -98,7 +85,17 @@ const useStyles = makeStyles((theme) => ({
 function Nav(props){
     const isDesktop = useMediaQuery({query: '(min-width: 1240px)'})
     const [state, setState] = React.useState(false);
-
+    const navData = [
+        {"name":"공지사항","link":"/notice"},
+        {"name":"캘린더","link":"/calendar"},
+        {"name":"작업일지","link":"/diary"},
+        {"name":"휴가신청","link":"/off"},
+        {"name":"전자결재","link":"/pay"},
+        {"name":"사용자목록 및 등록","link":""},
+        {"name":"개인정보 수정","link":""},
+        {"name":"히스토리","link":""},
+        {"name":"로그아웃","link":"/"},
+    ];
     const classes = useStyles();
 
         
@@ -112,7 +109,7 @@ function Nav(props){
         {/* 웹 */}
         {(isDesktop) &&
             <div className={classes.root}>
-                <NavLoop nameOn={props.nameOn}></NavLoop>
+                <NavLoop nameOn={props.nameOn} data={navData}></NavLoop>
             </div>
         }
         {/* 태블릿, 모바일 */}
@@ -122,7 +119,7 @@ function Nav(props){
             <Drawer  open={state} onClose={toggleDrawer}>
                 <div className={classes.root}>
                     <div  className={classes.list} role="presentation" >
-                        <NavLoop nameOn={props.nameOn}></NavLoop>
+                        <NavLoop nameOn={props.nameOn}  data={navData}></NavLoop>
                     </div>
                 </div>
             </Drawer>
