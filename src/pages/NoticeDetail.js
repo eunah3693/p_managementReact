@@ -6,7 +6,7 @@ import InputBox from '../component/InputBox';
 import InputFile from '../component/InputFile';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import {connect} from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
     layout:{
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         display:"flex",
         alignItems:"center",
         flexDirection:"column",
-        paddingTop:"100px"
+        paddingTop:"70px"
     },
     radioBox:{
         width:"800px",
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function NoticeDetail(){
+function NoticeDetail(props){
     const classes = useStyles();
     const location = useLocation()
 
@@ -60,13 +60,7 @@ function NoticeDetail(){
 
     useEffect(() => {
         if(location.pathname.split("/noticeDetail/")[1]){ //pathname 있으면 보기, 없으면 등록 
-            setData({
-                type:"취업규칙",
-                title:"title",
-                content:"content",
-                writer:"writer",
-                sFile:""
-            })
+            setData(props.noticeDetail)
         }
       }, [location.pathname]);
       
@@ -81,7 +75,7 @@ function NoticeDetail(){
                 <InputBox width="800px" multiline={false} rows={1} label="공지제목" inputValue={data.title} changeValue={(e)=>{changeValue(e,"title")}} ></InputBox>
             </div>
             <div className={classes.inputBox}>
-                <InputBox width="800px" multiline={true} rows={20}  label="공지내용" inputValue={data.content} changeValue={(e)=>{changeValue(e,"content")}}></InputBox>
+                <InputBox width="800px" multiline={true} rows={15}  label="공지내용" inputValue={data.content} changeValue={(e)=>{changeValue(e,"content")}}></InputBox>
             </div>
             <div className={classes.inputBox}>
                 <InputBox width="800px" multiline={false} rows={1}  label="작성자" inputValue={data.writer} changeValue={(e)=>{changeValue(e,"writer")}}></InputBox>
@@ -95,5 +89,17 @@ function NoticeDetail(){
     );
 
 }
+let mapStateToProps = (state, /*ownProps*/) => {
+    return {
+        noticeDetail: state.noticeDetail,
+    };
+};
 
+let mapDispatchToProps = (dispatch, /*ownProps*/) => {
+    return {
+        addNumber: () => dispatch({ type: 'INCREMENT' })
+    };
+};
+
+NoticeDetail = connect(mapStateToProps, mapDispatchToProps)(NoticeDetail);
 export default NoticeDetail;
