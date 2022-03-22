@@ -58,26 +58,11 @@ function Login(props) {
                     <Button className={classes.loginButton}  variant="contained" onClick={submitId}>LOGIN</Button>
                 </form>
             </Card>
-            <span>{props.number}</span>
-            <button onClick={props.addNumber}>ddddd</button>
         </div>
     );
     
   }
 
-let mapStateToProps = (state, /*ownProps*/) => {
-    return {
-        number: state.login.number,
-    };
-};
-
-let mapDispatchToProps = (dispatch, /*ownProps*/) => {
-    return {
-        addNumber: () => dispatch({ type: 'INCREMENT' })
-    };
-};
-
-Login = connect(mapStateToProps, mapDispatchToProps)(Login);
 
 export default Login;
 
