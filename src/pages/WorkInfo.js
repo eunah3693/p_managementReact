@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import {connect} from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   layout:{
@@ -19,36 +19,37 @@ const useStyles = makeStyles((theme) => ({
   }
  
 }));
-let data=[
-   {
-       "name":"김은아",
-       "department":"개발",
-       "rank":"직급",
-       "position":"매니저",
-       "entryDate":"2021-01-04",
-       "workingDay":"2021-01-04",
-       "lateDay":"2021-01-04",
-       "email":"eunah@guworldwide.com",
-       "phone":"010-9824-2104",
-   }
-]
-function WorkInfo(){
+
+function WorkInfo(props){
   const classes = useStyles();
 
 
   return (
     <Card className={classes.layout}>
-        <p className={classes.title}><b>{data[0].name}</b>님의 출근부</p>
-        <p>부서 : {data[0].department}</p>
-        <p>직급 : {data[0].rank}</p>
-        <p>직책 : {data[0].position}</p>
-        <p>입사일 : {data[0].entryDate}</p>
-        <p>근속일수 : {data[0].workingDay}</p>
-        <p>지각일수 : {data[0].lateDay}</p>
-        <p>이메일 : {data[0].email}</p>
-        <p>연락처 : {data[0].phone}</p>
+        <p className={classes.title}><b>{props.data.name}</b>님의 출근부</p>
+        <p>부서 : {props.data.department}</p>
+        <p>직급 : {props.data.rank}</p>
+        <p>직책 : {props.data.position}</p>
+        <p>입사일 : {props.data.entryDate}</p>
+        <p>지각일수 : {props.data.lateDay}</p>
+        <p>이메일 : {props.data.email}</p>
+        <p>연락처 : {props.data.phone}</p>
     </Card>
   );
 }
+
+let mapStateToProps = (state, /*ownProps*/) => {
+  return {
+      data: state.workInfo.info,
+  };
+};
+
+let mapDispatchToProps = (dispatch, /*ownProps*/) => {
+  return {
+      addNumber: () => dispatch({ type: 'INCREMENT' })
+  };
+};
+
+WorkInfo = connect(mapStateToProps, mapDispatchToProps)(WorkInfo);
 
 export default WorkInfo;

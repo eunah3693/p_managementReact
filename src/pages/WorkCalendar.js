@@ -62,7 +62,6 @@ function WorkCalendar(){
       <Nav nameOn="캘린더"></Nav>
       <div className={classes.content}>
         <div className={classes.calendarInfo}>
-          <WorkerInfo></WorkerInfo>
           <WorkInfo></WorkInfo>
           <HolidayInfo></HolidayInfo>
         </div>

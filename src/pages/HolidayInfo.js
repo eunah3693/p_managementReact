@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import {connect} from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   layout:{
@@ -19,30 +19,35 @@ const useStyles = makeStyles((theme) => ({
   }
  
 }));
-let data=[
-   {
-       "name":"김은아",
-       "duration":"2021-01-04~2022-01-03",
-       "usable":1,
-       "used":0,
-       "paid":0,
-       "unpaid":0
-   }
-]
-function HolidayInfo(){
+
+function HolidayInfo(props){
   const classes = useStyles();
 
 
   return (
     <Card className={classes.layout}>
-        <p className={classes.title}><b>{data[0].name}</b>님의 휴가정보</p>
-        <p>사용기간 : {data[0].duration}</p>
-        <p>사용가능 : {data[0].usable}</p>
-        <p>사용갯수 : {data[0].used}</p>
-        <p>유급휴가 : {data[0].paid}</p>
-        <p>무급휴가 : {data[0].unpaid}</p>
+        <p className={classes.title}><b>{props.data.name}</b>님의 휴가정보</p>
+        <p>사용기간 : {props.data.duration}</p>
+        <p>사용가능 : {props.data.usable}</p>
+        <p>사용갯수 : {props.data.used}</p>
+        <p>유급휴가 : {props.data.paid}</p>
+        <p>무급휴가 : {props.data.unpaid}</p>
     </Card>
   );
 }
+
+let mapStateToProps = (state, /*ownProps*/) => {
+  return {
+      data: state.workInfo.holidayInfo,
+  };
+};
+
+let mapDispatchToProps = (dispatch, /*ownProps*/) => {
+  return {
+      addNumber: () => dispatch({ type: 'INCREMENT' })
+  };
+};
+
+HolidayInfo = connect(mapStateToProps, mapDispatchToProps)(HolidayInfo);
 
 export default HolidayInfo;
