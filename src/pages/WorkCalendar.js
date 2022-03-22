@@ -5,10 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Nav from '../component/Nav';
 import BigCalendar from '../component/BigCalendar';
-import WorkCalendarData from '../pages/WorkCalendarData';
 import WorkerInfo from './WorkerInfo';
 import WorkInfo from './WorkInfo';
 import HolidayInfo from './HolidayInfo';
+import {connect} from 'react-redux'
+
 
 const useStyles = makeStyles((theme) => ({
   layout:{
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function WorkCalendar(){
+function WorkCalendar(props){
   const classes = useStyles();
 
   function eventStyleGetter(event, start, end, isSelected){
@@ -66,11 +67,24 @@ function WorkCalendar(){
           <HolidayInfo></HolidayInfo>
         </div>
         <div className={classes.calendar}>
-          <BigCalendar events={WorkCalendarData} eventStyleGetter={eventStyleGetter}></BigCalendar>
+          <BigCalendar events={props.data} eventStyleGetter={eventStyleGetter}></BigCalendar>
         </div>
       </div>
     </div>
   );
 }
+let mapStateToProps = (state, /*ownProps*/) => {
+  return {
+      data: state.calendar,
+  };
+};
+
+let mapDispatchToProps = (dispatch, /*ownProps*/) => {
+  return {
+      addNumber: () => dispatch({ type: 'INCREMENT' })
+  };
+};
+
+WorkCalendar = connect(mapStateToProps, mapDispatchToProps)(WorkCalendar);
 
 export default WorkCalendar;
