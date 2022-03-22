@@ -28,10 +28,10 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft:"50px",
     display:"flex",
     flexDirection:"column",
-    justifyContent:"center",
+    justifyContent:"space-between",
     alignItems:"center"
   },
-  calendar:{
+  diary:{
     width:"75%",
     display:"flex",
     flexDirection:"column",
@@ -54,6 +54,7 @@ function WorkDiary(){
     console.log(event);
     var backgroundColor = event.hexColor;
     var style = {
+      width:"80%",
       backgroundColor: backgroundColor,
       borderRadius: '4px',
       opacity: 0.8,
@@ -85,27 +86,19 @@ function WorkDiary(){
       <Nav nameOn="작업일지"></Nav>
       <div className={classes.content}>
         <div className={classes.calendarInfo}>
-          <WorkerInfo></WorkerInfo>
-          <DiaryCalendar events={WorkDiaryData}></DiaryCalendar>
+          <DiaryCalendar events={WorkDiaryData} eventStyleGetter={eventStyleGetter}></DiaryCalendar>
         </div>
-        <div className={classes.calendar}>
+        <div className={classes.diary}>
           <form>
             <Card variant="outlined" className={classes.inputWrap}>
-              <InputBox width="500px" multiline={true} rows={5}  label="지난업무" inputValue={data.content} changeValue={(e)=>{changeValue(e,"yesterday")}}></InputBox>
-              <InputBox width="500px" multiline={true} rows={5}  label="내일업무" inputValue={data.content} changeValue={(e)=>{changeValue(e,"tommorow")}}></InputBox>
+              <InputBox width="400px" multiline={true} rows={5}  label="어제업무" inputValue={data.content} changeValue={(e)=>{changeValue(e,"yesterday")}}></InputBox>
+              <InputBox width="400px" multiline={true} rows={5}  label="내일업무" inputValue={data.content} changeValue={(e)=>{changeValue(e,"tommorow")}}></InputBox>
             </Card>
             <Card variant="outlined" className={classes.inputWrap}>
-              <InputBox width="1000px" multiline={true} rows={10}  label="오늘업무" inputValue={data.content} changeValue={(e)=>{changeValue(e,"today")}}></InputBox>
+              <InputBox width="800px" multiline={true} rows={10}  label="오늘업무" inputValue={data.content} changeValue={(e)=>{changeValue(e,"today")}}></InputBox>
             </Card>
             <Card variant="outlined" className={classes.inputWrap}>
-              <InputBox width="500px" multiline={true} rows={5}  label="이번주업무" inputValue={data.content} changeValue={(e)=>{changeValue(e,"thisweek")}}></InputBox>
-              <InputBox width="500px" multiline={true} rows={5}  label="다음주업무" inputValue={data.content} changeValue={(e)=>{changeValue(e,"nextweek")}}></InputBox>
-            </Card>
-            <Card variant="outlined" className={classes.inputWrap}>
-              <InputBox width="1000px" multiline={true} rows={3}  label="비고" inputValue={data.content} changeValue={(e)=>{changeValue(e,"extra")}}></InputBox>
-            </Card>
-            <Card variant="outlined" className={classes.inputWrap}>
-              <InputBox width="1000px" multiline={true} rows={3}  label="관리자코멘트" inputValue={data.content} changeValue={(e)=>{changeValue(e,"comment")}}></InputBox>
+              <InputBox width="800px" multiline={true} rows={3}  label="비고" inputValue={data.content} changeValue={(e)=>{changeValue(e,"extra")}}></InputBox>
             </Card>
             <div className="tac">
               <Button variant="contained" className={classes.submitBtn}>저장</Button>
