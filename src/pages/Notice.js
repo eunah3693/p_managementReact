@@ -67,8 +67,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Notice(props){
     const classes = useStyles();
-    const selectData=["취업공지","취업규칙","서류양식"];
-    const [option, setOption] = React.useState("취업공지"); //selectbox
+    const selectData=["전체공지","취업규칙","서류양식"];
+    const [option, setOption] = React.useState("전체공지"); //selectbox
     const changeSelect = (event) => {
         setOption(event.target.value);
     };
