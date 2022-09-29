@@ -5,6 +5,8 @@ import noticeDetailReducers  from './noticeDetailReducers';
 import workInfoReducers  from './workInfoReducers';
 import calendarReducers  from './calendarReducers';
 
+//combinereduder -> index.js 에서 import 됨
+
 const rootReducer = combineReducers({
     login:loginReducers,
     notice:noticeReducers,

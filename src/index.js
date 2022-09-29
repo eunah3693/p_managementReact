@@ -8,6 +8,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './Store/combineReducer';
 
+
 const store = createStore(
   rootReducer, // createStore의 첫 번째 인자로 리듀서를 받아야 한다
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), 

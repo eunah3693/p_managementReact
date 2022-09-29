@@ -68,13 +68,13 @@ const useStyles = makeStyles((theme) => ({
     root: {
       height:"100vh",
       width: "250px",
-      backgroundColor: theme.palette.grey[600],
+      backgroundColor: theme.palette.primary.main,
       color:"#fff"
     },
     menuIconBox:{
         width:"51px",
         height:"100vh",
-        backgroundColor: theme.palette.grey[600],
+        backgroundColor: theme.palette.primary.main,
         color:"#fff",
         paddingTop:"20px",
     }

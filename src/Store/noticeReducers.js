@@ -21,7 +21,7 @@ const initialState = {
       "date":"2021-09-01"
   }],
 }
-  
+// function 기본 리듀서구조 (state="초기값", action){}
 const noticeReducers = (state = initialState, action) => {
     switch (action.type) {
       case "INCREMENT":
