@@ -9,20 +9,8 @@ import WorkDiary from './pages/WorkDiary';
 import OffList from './pages/OffList';
 import OffDetail from './pages/OffDetail';
 import PayList from './pages/PayList';
-import { ThemeProvider,createTheme } from '@material-ui/core/styles';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      // Purple and green play nicely together.
-      main: "#555",
-    },
-    secondary: {
-      // This is green.A700 as hex.
-      main: '#11cb5f',
-    },
-  },
-});
+import theme from './Theme';
+import { ThemeProvider } from '@material-ui/core/styles';
 
 function App() {
   return (

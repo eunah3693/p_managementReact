@@ -14,7 +14,7 @@ import navLogo from '../images/logowhite.png';
 
 const loopStyles = makeStyles((theme) => ({
     logoBox:{
-        padding:"70px 0  30px 30px",
+        padding:"30px 0  30px 30px",
         textAlign:"left",
         "& img":{
             width:"70px"
@@ -32,7 +32,7 @@ const loopStyles = makeStyles((theme) => ({
         },
         "& .on .MuiTypography-root":{
             fontWeight:"bold",
-            color:"#ccc"
+            color:"#fff"
         }
     },
     
@@ -69,14 +69,16 @@ const useStyles = makeStyles((theme) => ({
       height:"100vh",
       width: "250px",
       backgroundColor: theme.palette.primary.main,
-      color:"#fff"
+      color:"#555"
     },
     menuIconBox:{
-        width:"51px",
+        width:"60px",
         height:"100vh",
         backgroundColor: theme.palette.primary.main,
         color:"#fff",
         paddingTop:"20px",
+        display:"flex",
+        justifyContent:"center"
     }
 
 }));
