@@ -14,10 +14,10 @@ import navLogo from '../images/logowhite.png';
 
 const loopStyles = makeStyles((theme) => ({
     logoBox:{
-        padding:"30px 0  30px 30px",
+        padding:"20px 0  20px 30px",
         textAlign:"left",
         "& img":{
-            width:"70px"
+            width:"40px"
         }
     },
     list:{

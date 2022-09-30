@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../component/Nav';
+import Location from '../component/Location';
 import SelectBox from '../component/SelectBox';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -76,6 +77,7 @@ function Notice(props){
         <div className={classes.layout}>
           <Nav nameOn="공지사항"></Nav>
           <div className={classes.content}>
+            <Location location="Notice"></Location>
             <div className={classes.sortingBox}>
                 <SelectBox width="130px" selectData={selectData} placeholder={option} changeSelect={changeSelect}></SelectBox>
                 <Link to={"/noticeDetail"} className={classes.buttonBox}><Button variant="contained">공지추가</Button></Link>
